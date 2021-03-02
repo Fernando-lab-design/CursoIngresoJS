@@ -1,6 +1,18 @@
 function mostrar()
 {
-	alert("ok");
+	let numero;
+
+	for(numero=0;  ;numero++)	
+	{
+		console.log(numero);
+		
+		if(numero == 9)
+		{
+			break;
+		}
+	}
+	
+	alert("chau");
 
 
 
