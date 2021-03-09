@@ -22,6 +22,7 @@ e) El promedio de edad entre los hombres solteros.*/
 	let contadorMayFiebre = 0;
 	let contadorhombsol = 0;
 	let acumEdad = 0;
+	let promedioHomb = 0;
 
 	
 	
@@ -48,7 +49,7 @@ e) El promedio de edad entre los hombres solteros.*/
 		{
 			temperatura = parseFloat(prompt("Valor invalido. Ingrese temperatura corporal: "));
 		}
-		while(flag || mayorTemperatura < temperatura)
+		if(flag || mayorTemperatura < temperatura)
 		{
 			mayorTemperatura = temperatura;
 			personaTemp = nombre;
@@ -70,17 +71,24 @@ e) El promedio de edad entre los hombres solteros.*/
 		{
 			acumEdad += edad;
 			contadorhombsol++;
-			promedioHomb = acumEdad/contadorhombsol;
 		}
-
-	respuesta = prompt("¿Desea ingresar otra persona?:", "si");
-
+		
+		respuesta = prompt("¿Desea ingresar otra persona?:", "si");
+		
 	}while(respuesta == "si")
-
-document.write("a- La persona con mayor temperatura se llama: " + personaTemp + "<br>");
-document.write("b- La cantidad de hombres mayores que estan viudos es: " + viudosMayores + "<br>");
-document.write("c- La cantidad de hombres que hay solteros o viudos es: " + contadorNoCasados + "<br>");
-document.write("d- La cantidad de personas de la tercera edad con mas de 38° es: " + contadorMayFiebre + "<br>");
-document.write("e- El promedio de edad de los hombres solteros es: " + promedioHomb + "<br>");
-
+	
+		
+	document.write("a- La persona con mayor temperatura se llama: " + personaTemp + "<br>");
+	document.write("b- La cantidad de hombres mayores que estan viudos es: " + viudosMayores + "<br>");
+	document.write("c- La cantidad de hombres que hay solteros o viudos es: " + contadorNoCasados + "<br>");
+	document.write("d- La cantidad de personas de la tercera edad con mas de 38° es: " + contadorMayFiebre + "<br>");
+	if(contadorhombsol != 0)
+	{
+	promedioHomb = acumEdad/contadorhombsol;
+	document.write("e- El promedio de edad de los hombres solteros es: " + promedioHomb + "<br>");
+	}
+	else
+	{
+		document.write("e- No se ingresaron");
+	}
 }

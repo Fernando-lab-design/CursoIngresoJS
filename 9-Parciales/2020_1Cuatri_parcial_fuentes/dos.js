@@ -1,28 +1,20 @@
 function mostrar()
 {
-  /*Realizar el algoritmo que permita ingresar los datos de una compra productos de la construccion, 
-  hasta que el cliente quiera:
-Tipo validad("arena";"cal";"cemento")
-Cantidad de bolsas,
-Precio por bolsa (más de cero ),
-
-Si compro más de 10 bolsas en total tenes 15% de descuento sobre el total a pagar.
-Si compro más de 30 bolsas en total tenes 25% de descuento sobre el total a pagar.
-a) El importe total a pagar , bruto sin descuento y...
-b) el importe total a pagar con descuento(solo si corresponde)
-d) Informar el tipo con mas cantidad de bolsas.
-f) El tipo mas caro*/
   let producto;
   let cantidad;
   let precio;
   let acumcal = 0;
   let acumcemento = 0;
   let acumarena = 0;
-  let sigue;
   let acumCompra = 0;
+  let acumbolsas = 0;
+  let sigue;
   let flag = 1;
   let tipoCaro;
-  let acumbolsas = 0;
+  let maxPrecio;
+  let totalproducto;
+  let importe15;
+  let importe25;
 
   do
   {
@@ -56,8 +48,9 @@ f) El tipo mas caro*/
       acumcemento += cantidad;
     }
     
-    if(flag || precio > tipoCaro)
+    if(flag || precio > maxPrecio)
     {
+      maxprecio = precio;
       tipoCaro = producto;
       flag = 0;
       
